@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Countdown</title>
+  <style>
+    body {
+      background-color: #f24236;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #days {
+      font-size: 28px;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <p id="days"></p>
+
+  </div>
+
+  <script>
+    const myDate = new Date();
+
+    const christmas = Date.parse("Dec 25, " + myDate.getFullYear());
+    const today = Date.parse(myDate);
+
+    const daysToChristmas = Math.round((christmas - today) / (1000 * 60 * 60 * 24));
+
+    if (daysToChristmas == 0) {
+      document.getElementById("days").innerHTML = "Merry Christmas!";
+    } else {
+      document.getElementById("days").innerHTML = daysToChristmas + " days until Christmas!";
+    }
+
+  </script>
+</body>
+
+</html>
